@@ -1,11 +1,14 @@
 import './index.css'
+import Home from "./pages/Home"
+import { BrowserRouter } from 'react-router-dom'
+
 
 function App() {
 
   return (
-    <>
-      <h1>TaskFlow</h1>
-    </>
+    <BrowserRouter>
+      <Home />
+    </BrowserRouter>
   )
 }
 
