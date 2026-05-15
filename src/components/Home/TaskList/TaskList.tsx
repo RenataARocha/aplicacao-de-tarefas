@@ -15,7 +15,7 @@ function TaskList({ tasks }: TaskListProps) {
                         key={task.id}
                         titulo={task.titulo}
                         descricao={task.descricao}
-                        status={task.status}
+                        prioridade={task.prioridade}
                         data={task.data}
                     />
                 ))}

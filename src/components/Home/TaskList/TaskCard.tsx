@@ -1,11 +1,11 @@
 type TaskCardProps = {
     titulo: string;
     descricao: string;
-    status: string;
+    prioridade: string;
     data: string
 }
 
-function TaksCard({ titulo, descricao, status, data }: TaskCardProps) {
+function TaksCard({ titulo, descricao, prioridade, data }: TaskCardProps) {
 
 
     return (
@@ -13,7 +13,7 @@ function TaksCard({ titulo, descricao, status, data }: TaskCardProps) {
             <article>
                 <h2>{titulo}</h2>
                 <p>{descricao}</p>
-                <span>{status}</span>
+                <span>{prioridade}</span>
                 <span>{data}</span>
 
                 <button>Editar</button>
