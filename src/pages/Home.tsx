@@ -11,7 +11,8 @@ function Home() {
             id: 1,
             titulo: "Revisar protótipo do dashboard",
             descricao: "Validar componentes finais e ajustar espaçamentos do header.",
-            status: "Alta",
+            prioridade: "Alta",
+            concluida: true,
             data: "15 de mai."
         },
 
@@ -19,7 +20,8 @@ function Home() {
             id: 2,
             titulo: "Estudar TanStack Router",
             descricao: "Aprofundar em loaders, layouts e roteamento aninhado.",
-            status: "Média",
+            prioridade: "Média",
+            concluida: true,
             data: "17 de mai."
         },
 
@@ -27,7 +29,8 @@ function Home() {
             id: 3,
             titulo: "Publicar artigo no blog",
             descricao: "Finalizar texto sobre boas práticas de Tailwind.",
-            status: "Baixa",
+            prioridade: "Baixa",
+            concluida: false,
             data: "13 de mai."
         },
     ])
@@ -44,7 +47,7 @@ function Home() {
                     <button>+ Adicionar Tarefa</button>
                 </section>
             </main>
-            <SummaryCard />
+            <SummaryCard tasks={tasks} />
             <FilterBar />
             <TaskList tasks={tasks} />
         </>
