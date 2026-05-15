@@ -1,9 +1,37 @@
 import Header from "../components/Home/Header"
 import SummaryCard from "../components/Home/SummaryCards/SummaryCard"
 import FilterBar from "../components/Home/FilterBar"
-import TaskCard from "../components/Home/TaskList/TaskList"
+import TaskList from "../components/Home/TaskList/TaskList"
+import { useState } from "react"
+import type { Task } from "../types/task"
 
 function Home() {
+    const [tasks, setTasks] = useState<Task[]>([
+        {
+            id: 1,
+            titulo: "Revisar protótipo do dashboard",
+            descricao: "Validar componentes finais e ajustar espaçamentos do header.",
+            status: "Alta",
+            data: "15 de mai."
+        },
+
+        {
+            id: 2,
+            titulo: "Estudar TanStack Router",
+            descricao: "Aprofundar em loaders, layouts e roteamento aninhado.",
+            status: "Média",
+            data: "17 de mai."
+        },
+
+        {
+            id: 3,
+            titulo: "Publicar artigo no blog",
+            descricao: "Finalizar texto sobre boas práticas de Tailwind.",
+            status: "Baixa",
+            data: "13 de mai."
+        },
+    ])
+
     return (
         <>
             <Header />
@@ -18,7 +46,7 @@ function Home() {
             </main>
             <SummaryCard />
             <FilterBar />
-            <TaskCard />
+            <TaskList tasks={tasks} />
         </>
     )
 }
