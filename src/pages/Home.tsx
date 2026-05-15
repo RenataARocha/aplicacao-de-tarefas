@@ -1,4 +1,7 @@
 import Header from "../components/Home/Header"
+import SummaryCard from "../components/Home/SummaryCards/SummaryCard"
+import FilterBar from "../components/Home/FilterBar"
+import TaskCard from "../components/Home/TaskList/TaskList"
 
 function Home() {
     return (
@@ -13,6 +16,9 @@ function Home() {
                     <button>+ Adicionar Tarefa</button>
                 </section>
             </main>
+            <SummaryCard />
+            <FilterBar />
+            <TaskCard />
         </>
     )
 }
