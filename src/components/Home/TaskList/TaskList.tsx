@@ -1,35 +1,11 @@
 import TaksCard from "./TaskCard";
+import type { Task } from "../../../types/task"
 
+type TaskListProps = {
+    tasks: Task[];
+}
 
-function TaskList() {
-
-    const tasks = [
-        {
-            id: 1,
-            titulo: "Revisar protótipo do dashboard",
-            descricao: "Validar componentes finais e ajustar espaçamentos do header.",
-            status: "Alta",
-            data: "15 de mai."
-        },
-
-        {
-            id: 2,
-            titulo: "Estudar TanStack Router",
-            descricao: "Aprofundar em loaders, layouts e roteamento aninhado.",
-            status: "Média",
-            data: "17 de mai."
-        },
-
-        {
-            id: 3,
-            titulo: "Publicar artigo no blog",
-            descricao: "Finalizar texto sobre boas práticas de Tailwind.",
-            status: "Baixa",
-            data: "13 de mai."
-        },
-
-    ]
-
+function TaskList({ tasks }: TaskListProps) {
 
     return (
         <>
