@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+    --radius: 0.875rem;
+
+    /* Base */
+    --background: oklch(0.16 0.02 270);
+    --foreground: oklch(0.98 0 0);
+
+    /* Superfícies */
+    --card: oklch(0.21 0.025 270 / 0.6);
+    --card-foreground: oklch(0.98 0 0);
+    --popover: oklch(0.18 0.025 270);
+    --popover-foreground: oklch(0.98 0 0);
+
+    /* Marca */
+    --primary: oklch(0.65 0.25 295);
+    --primary-foreground: oklch(0.98 0 0);
+    --accent: oklch(0.7 0.2 240);
+    --accent-foreground: oklch(0.98 0 0);
+
+    /* Neutros */
+    --secondary: oklch(0.26 0.03 270);
+    --secondary-foreground: oklch(0.98 0 0);
+    --muted: oklch(0.24 0.025 270);
+    --muted-foreground: oklch(0.7 0.02 270);
+
+    /* Feedback */
+    --destructive: oklch(0.65 0.24 22);
+    --destructive-foreground: oklch(0.98 0 0);
+    --success: oklch(0.72 0.18 155);
+    --warning: oklch(0.78 0.18 75);
+
+    /* Bordas */
+    --border: oklch(1 0 0 / 0.08);
+    --input: oklch(1 0 0 / 0.06);
+    --ring: oklch(0.65 0.25 295);
+
+    /* Neon */
+    --neon-purple: oklch(0.7 0.27 295);
+    --neon-blue: oklch(0.72 0.2 240);
+
+    /* Gradientes */
+    --gradient-primary:
+        linear-gradient(135deg,
+            oklch(0.65 0.25 295),
+            oklch(0.65 0.22 240));
+
+    --gradient-glow:
+        radial-gradient(circle at 50% 0%,
+            oklch(0.65 0.25 295 / 0.25),
+            transparent 60%);
+
+    /* Fontes */
+    --font-sans: 'Inter', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
