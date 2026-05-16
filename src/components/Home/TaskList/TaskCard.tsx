@@ -1,12 +1,29 @@
+import { useContext } from "react"
+import { TaskContext } from "../../../context/TaskContext"
+import { Link } from "react-router-dom"
+
 type TaskCardProps = {
+    id: number;
     titulo: string;
     descricao: string;
     prioridade: string;
-    data: string
+    data: string;
+    concluida: boolean;
 }
 
-function TaksCard({ titulo, descricao, prioridade, data }: TaskCardProps) {
+function TaksCard({
+    id,
+    titulo,
+    descricao,
+    prioridade,
+    data,
+    concluida
+}: TaskCardProps) {
 
+    const {
+        handleRemoverTask,
+        handleConcluirTask
+    } = useContext(TaskContext)
 
     return (
         <>
@@ -14,10 +31,24 @@ function TaksCard({ titulo, descricao, prioridade, data }: TaskCardProps) {
                 <h2>{titulo}</h2>
                 <p>{descricao}</p>
                 <span>{prioridade}</span>
+
+                <p>
+                    {concluida ? "Concluída" : "Pendente"}
+                </p>
+
                 <span>{data}</span>
 
-                <button>Editar</button>
-                <button>Excluir</button>
+                <button onClick={() => handleConcluirTask(id)}>
+                    Concluir
+                </button>
+
+                <Link to={`/editar/${id}`}>
+                    Editar
+                </Link>
+
+                <button onClick={() => handleRemoverTask(id)}>
+                    Excluir
+                </button>
             </article>
         </>
     )

@@ -1,41 +1,48 @@
 import './index.css'
-import Home from "./pages/Home"
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import NewTask from './pages/NewTask'
 
-import { useEffect, useState } from "react"
-import type { Task } from "./types/task"
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from 'react-router-dom'
+
+import Home from "./pages/Home"
+import NewTask from './pages/NewTask'
+import EditTask from "./pages/EditTask"
+
+import { TaskProvider } from "./context/TaskContext"
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-
-    const tarefasSalvas = localStorage.getItem("tasks")
-
-    return tarefasSalvas ? JSON.parse(tarefasSalvas) : []
-  })
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-  }, [tasks])
-
-  function handleAdicionarTask(newTask: Task) {
-    setTasks([...tasks, newTask])
-
-    console.log(newTask)
-  }
 
   return (
-    <BrowserRouter>
 
-      <Routes>
+    <TaskProvider>
 
-        <Route path="/" element={<Home tasks={tasks} />}></Route>
-        <Route path="/nova-tarefa" element={<NewTask onAddTask={handleAdicionarTask} />}></Route>
-      </Routes>
+      <BrowserRouter>
 
+        <Routes>
 
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-    </BrowserRouter>
+          <Route
+            path="/nova-tarefa"
+            element={<NewTask />}
+          />
+
+          <Route
+            path="/editar/:id"
+            element={<EditTask />}
+          />
+
+        </Routes>
+
+      </BrowserRouter>
+
+    </TaskProvider>
+
   )
 }
 

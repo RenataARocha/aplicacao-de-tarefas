@@ -1,12 +1,11 @@
 import { useState } from "react";
-import type { Task } from "../types/task";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react"
+import { TaskContext } from "../context/TaskContext"
 
-type NewTaskProps = {
-    onAddTask: (newTask: Task) => void;
-}
-
-function NewTask({ onAddTask }: NewTaskProps) {
+function NewTask() {
+    const { handleAdicionarTask } =
+        useContext(TaskContext)
 
     const [titulo, setTitulo] = useState("")
     const [descricao, setDescricao] = useState("")
@@ -27,7 +26,7 @@ function NewTask({ onAddTask }: NewTaskProps) {
             data
         }
 
-        onAddTask(newTask)
+        handleAdicionarTask(newTask)
         navigate("/")
 
         setTitulo("")
