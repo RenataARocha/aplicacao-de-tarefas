@@ -1,0 +1,112 @@
+main {
+    width: 100%;
+    padding: 2.5rem 2rem 1rem;
+}
+
+section {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.conteinerFluxo {
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subFluxo {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted-foreground);
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    width: fit-content;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.subFluxo svg {
+    color: var(--primary);
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+}
+
+.conteinerFluxo h1 {
+    font-size: 2.8rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.conteinerFluxo span {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.tarefas-pendentes {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+}
+
+.btnAdicionar {
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 24px rgba(168, 85, 247, 0.35);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btnAdicionar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 36px rgba(168, 85, 247, 0.55);
+    filter: brightness(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    main {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .conteinerFluxo h1 {
+        font-size: 2rem;
+    }
+
+    .btnAdicionar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteinerFluxo h1 {
+        font-size: 1.7rem;
+    }
+}
