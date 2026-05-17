@@ -1,0 +1,121 @@
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+
+    z-index: 9998;
+}
+
+.modal-wrapper {
+    position: fixed;
+
+    inset: 0;
+    margin: auto;
+
+    width: min(440px, calc(100vw - 2rem));
+    height: fit-content;
+
+    background: oklch(0.21 0.025 270 / 0.95);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    text-align: center;
+
+    backdrop-filter: blur(20px);
+
+    z-index: 9999;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.modal-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f87171;
+    margin-bottom: 0.25rem;
+}
+
+.modal-title {
+    font-size: 1.1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.modal-desc {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.modal-desc strong {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    width: 100%;
+}
+
+.modal-btn-cancelar {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.65rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.modal-btn-cancelar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.modal-btn-confirmar {
+    flex: 1;
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #f87171;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.65rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.modal-btn-confirmar:hover {
+    background: rgba(239, 68, 68, 0.28);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: white;
+}
