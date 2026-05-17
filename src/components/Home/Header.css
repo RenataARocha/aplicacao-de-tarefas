@@ -1,0 +1,58 @@
+header {
+    width: 100%;
+    padding: 1rem 2rem;
+
+    background: rgba(2, 1, 15, 0.65);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+}
+
+nav {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img {
+    width: 4rem;
+
+    object-fit: contain;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.72);
+
+    font-weight: 500;
+
+    padding: 0.7rem 1rem;
+
+    border-radius: 12px;
+
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+nav div a:first-child {
+    background: rgba(255, 255, 255, 0.06);
+
+    color: white;
+
+    box-shadow:
+        0 0 20px rgba(168, 85, 247, 0.15);
+}

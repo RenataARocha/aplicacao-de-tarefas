@@ -11,6 +11,7 @@ import NewTask from './pages/NewTask'
 import EditTask from "./pages/EditTask"
 
 import { TaskProvider } from "./context/TaskContext"
+import Header from './components/Home/Header'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
     <TaskProvider>
 
       <BrowserRouter>
-
+        <Header />
         <Routes>
 
           <Route
