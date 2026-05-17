@@ -200,20 +200,74 @@
     color: #f87171;
 }
 
+/* ===== Paginação ===== */
+
+.pagination {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+
+    font-size: 0.85rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination-info {
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+    min-width: 110px;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    .pagination {
+        padding: 0 1rem;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .pagination-btn {
+        width: 100%;
+        max-width: 220px;
+    }
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
     .task-list-main {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 640px) {
-    .task-list-main {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-
-    .task-actions {
-        opacity: 1;
     }
 }
