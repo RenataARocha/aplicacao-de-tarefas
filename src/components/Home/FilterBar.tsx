@@ -1,47 +1,58 @@
-// ---- FilterBar.jsx ---- //
-
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { TaskContext } from "../../context/TaskContext";
 import { Search } from "lucide-react";
 import "./FilterBar.css";
+import { motion } from "motion/react";
 
-function FilterBar() {
-    const { setFiltro } = useContext(TaskContext);
-    const [ativo, setAtivo] = useState("todas");
+export function FilterBar() {
+    const { filtro, setFiltro, textoBusca, setTextoBusca } = useContext(TaskContext);
 
-    function handleFiltro(filtro) {
-        setFiltro(filtro);
-        setAtivo(filtro);
-    }
+    const opcoes = [
+        { valor: "todas", label: "Todas" },
+        { valor: "pendentes", label: "Pendentes" },
+        { valor: "concluidas", label: "Concluídas" },
+    ];
 
     return (
-        <div className="filter-bar">
+        <motion.section
+            className="filter-bar"
+            aria-label="Filtros de tarefas"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: 0.12 }}
+        >
             <div className="filter-search-wrapper">
-                <Search size={16} />
-                <input type="text" placeholder="Buscar tarefa..." />
+                <Search size={16} aria-hidden="true" />
+                <label htmlFor="busca-tarefa" className="sr-only">
+                    Buscar tarefas por título, descrição ou prioridade
+                </label>
+                <input
+                    type="search"
+                    id="busca-tarefa"
+                    placeholder="Buscar tarefa..."
+                    value={textoBusca}
+                    onChange={(e) => setTextoBusca(e.target.value)}
+                    aria-label="Buscar tarefas"
+                />
             </div>
 
-            <div className="filter-buttons">
-                <button
-                    className={`filter-btn ${ativo === "todas" ? "active" : ""}`}
-                    onClick={() => handleFiltro("todas")}
-                >
-                    Todas
-                </button>
-                <button
-                    className={`filter-btn ${ativo === "pendentes" ? "active" : ""}`}
-                    onClick={() => handleFiltro("pendentes")}
-                >
-                    Pendentes
-                </button>
-                <button
-                    className={`filter-btn ${ativo === "concluidas" ? "active" : ""}`}
-                    onClick={() => handleFiltro("concluidas")}
-                >
-                    Concluídas
-                </button>
+            <div
+                className="filter-buttons"
+                role="group"
+                aria-label="Filtrar por status"
+            >
+                {opcoes.map(({ valor, label }) => (
+                    <button
+                        key={valor}
+                        className={`filter-btn ${filtro === valor ? "active" : ""}`}
+                        onClick={() => setFiltro(valor)}
+                        aria-pressed={filtro === valor}
+                    >
+                        {label}
+                    </button>
+                ))}
             </div>
-        </div>
+        </motion.section>
     );
 }
 
