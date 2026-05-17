@@ -1,23 +1,27 @@
+// ---- Header.jsx ---- //
+
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png"
-import "./Header.css"
+import { Sparkles } from "lucide-react";
+import "./Header.css";
 
 function Header() {
     return (
         <header>
             <nav>
-                <div>
-                    <img src={logo} alt="Logo TaskFlow" />
-                    <h1>TaskFlow</h1>
+                <div className="nav-brand">
+                    <div className="logo-wrapper">
+                        <Sparkles size={18} />
+                    </div>
+                    <h1 className="titulo-principal">Task<span>Flow</span></h1>
                 </div>
 
-                <div>
-                    <Link to="/">Tarefas</Link>
+                <div className="nav-links">
+                    <Link to="/" className="active">Tarefas</Link>
                     <Link to="/nova-tarefa">Nova</Link>
                 </div>
             </nav>
         </header>
-    )
+    );
 }
 
 export default Header;
