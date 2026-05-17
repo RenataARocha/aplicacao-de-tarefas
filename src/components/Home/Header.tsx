@@ -20,10 +20,12 @@ function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
                 >
-                    <div className="logo-wrapper">
-                        <Sparkles size={18} />
-                    </div>
-                    <h1 className="titulo-principal">Task<span>Flow</span></h1>
+                    <Link to="/" className="nav-brand-link" aria-label="Ir para página inicial">
+                        <div className="logo-wrapper">
+                            <Sparkles size={18} />
+                        </div>
+                        <h1 className="titulo-principal">Task<span>Flow</span></h1>
+                    </Link>
                 </motion.div>
 
                 <div className="nav-links">
