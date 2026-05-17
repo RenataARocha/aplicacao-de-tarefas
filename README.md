@@ -1,73 +1,210 @@
-# React + TypeScript + Vite
+# TaskFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router)
+![Motion](https://img.shields.io/badge/Motion-EE3B8B?style=for-the-badge&logo=framer)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3)
 
-Currently, two official plugins are available:
+Aplicação de gerenciamento de tarefas desenvolvida com React, TypeScript, Motion e CSS puro, com foco em acessibilidade, animações suaves e experiência do usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O projeto foi criado com foco em:
 
-## React Compiler
+- interface moderna com tema escuro;
+- animações suaves com Motion;
+- acessibilidade e semântica HTML;
+- responsividade para todos os dispositivos;
+- boas práticas de organização de código.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+https://github.com/user-attachments/assets/SEU-VIDEO-AQUI
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ☁️ Deploy
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+O projeto foi publicado utilizando a plataforma Vercel.
+
+---
+
+## ✨ Preview
+
+O TaskFlow possui:
+
+- criação, edição e exclusão de tarefas;
+- toggle de status pendente ↔ concluída;
+- filtro por status e busca em tempo real;
+- paginação da lista de tarefas;
+- modal de confirmação ao excluir;
+- toasts de sucesso e erro;
+- validação de formulários com feedback visual;
+- persistência de dados com localStorage;
+- animações de entrada, saída e layout com Motion;
+- design responsivo para mobile, tablet e desktop.
+
+---
+
+## 🚀 Tecnologias utilizadas
+
+- ⚛️ React 19
+- 🔷 TypeScript
+- ⚡ Vite
+- 🛣️ React Router v7
+- 🎞️ Motion
+- 🔍 Lucide React
+- 🌐 HTML5
+- 🎯 CSS3
+
+---
+
+## 📂 Estrutura do projeto
+
+```bash
+src/
+├── components/
+│   ├── Home/
+│   │   ├── FilterBar.tsx
+│   │   ├── Header.tsx
+│   │   ├── SummaryCards/
+│   │   └── TaskList/
+│   │       ├── TaskCard.tsx
+│   │       └── TaskList.tsx
+│   └── shared/
+│       ├── ConfirmModal/
+│       └── ToastContainer/
+├── context/
+│   └── TaskContext.tsx
+├── hooks/
+│   └── useToast.ts
+├── pages/
+│   ├── Home.tsx
+│   ├── NewTask.tsx
+│   └── EditTask.tsx
+├── styles/
+│   └── Form.css
+└── types/
+    └── task.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Funcionalidades
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- ➕ Adicionar nova tarefa
+- ✏️ Editar tarefa existente
+- 🗑️ Excluir com modal de confirmação
+- ✅ Marcar como concluída (toggle)
+- 🔍 Busca por título, descrição ou prioridade
+- 🗂️ Filtro por status (todas, pendentes, concluídas)
+- 📄 Paginação da lista
+- 🔔 Toasts de sucesso e erro
+- 💾 Persistência com localStorage
+- 🎞️ Animações com Motion
+- ⚠️ Validação de formulários
+
+---
+
+## ♿ Acessibilidade
+
+O projeto inclui melhorias de acessibilidade como:
+
+- uso de tags semânticas (`main`, `section`, `header`, `article`, `nav`);
+- `aria-label` nos botões de ação;
+- `aria-pressed` nos botões de toggle e filtro;
+- `aria-live` nas notificações toast;
+- `aria-invalid` e `aria-describedby` nos campos com erro;
+- `aria-busy` no botão de submit durante o loading;
+- `role="dialog"` e `aria-modal` no modal de confirmação;
+- `role="alert"` nas mensagens de erro;
+- foco gerenciado com `autoFocus` no modal;
+- contraste aprimorado;
+- suporte à navegação por teclado.
+
+---
+
+## 📱 Responsividade
+
+O layout foi desenvolvido para funcionar em:
+
+- desktop;
+- tablets;
+- dispositivos móveis.
+
+---
+
+## 🛠️ Como executar o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/RenataARocha/aplicacao-de-tarefas.git
 ```
+
+Entre na pasta:
+
+```bash
+cd aplicacao-de-tarefas
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+---
+
+## 🎨 Personalização
+
+Você pode facilmente alterar:
+
+- cores e gradientes (via variáveis CSS em `global.css`);
+- animações e transições;
+- fontes;
+- efeitos de glow e blur;
+- tamanhos e espaçamentos;
+- favicon.
+
+---
+
+## 📌 Melhorias futuras
+
+- 🌙 Tema claro/escuro
+- 📊 Gráfico de produtividade
+- 🏷️ Sistema de categorias/tags
+- 📅 Integração com calendário
+- 🔔 Lembretes por data de vencimento
+- ⚡ Atalhos de teclado
+- 🔄 Drag and drop para reordenar tarefas
+
+---
+
+## 📚 Aprendizados
+
+Durante o desenvolvimento deste projeto foram praticados conceitos como:
+
+- gerenciamento de estado global com Context API;
+- tipagem avançada com TypeScript;
+- persistência de dados com localStorage;
+- acessibilidade com ARIA e semântica HTML;
+- animações e transições com Motion;
+- responsividade com CSS puro e variáveis CSS;
+- componentização e organização de projeto React;
+- tratamento de erros e feedback ao usuário.
+
+---
+
+## 👩‍💻 Desenvolvido por
+
+Renata Alexandre Rocha  
+Front-End Developer | React | TypeScript
