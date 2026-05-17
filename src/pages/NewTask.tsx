@@ -1,18 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react"
-import { TaskContext } from "../context/TaskContext"
+import { useNavigate, Link } from "react-router-dom";
+import { useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
+import { ArrowLeft } from "lucide-react";
+import "../styles/Form.css";
 
 function NewTask() {
-    const { handleAdicionarTask } =
-        useContext(TaskContext)
+    const { handleAdicionarTask } = useContext(TaskContext);
 
-    const [titulo, setTitulo] = useState("")
-    const [descricao, setDescricao] = useState("")
-    const [prioridade, setPrioridade] = useState("")
-    const [data, setData] = useState("")
+    const [titulo, setTitulo] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const [prioridade, setPrioridade] = useState("");
+    const [data, setData] = useState("");
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     function handleSalvarTarefa(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -23,56 +24,101 @@ function NewTask() {
             descricao,
             prioridade,
             concluida: false,
-            data
-        }
+            data,
+        };
 
-        handleAdicionarTask(newTask)
-        navigate("/")
+        handleAdicionarTask(newTask);
+        navigate("/");
 
-        setTitulo("")
-        setDescricao("")
-        setPrioridade("")
-        setData("")
+        setTitulo("");
+        setDescricao("");
+        setPrioridade("");
+        setData("");
     }
 
-
-
     return (
-        <>
-            <main>
-                <section>
-                    <span>+</span>
-                    <h1>Nova tarefa</h1>
-                    <p>Organize uma nova ideia em segundos.</p>
+        <main className="form-page-main">
+            <Link to="/" className="form-back-link">
+                <ArrowLeft size={16} />
+                Voltar
+            </Link>
 
-                    <form onSubmit={handleSalvarTarefa}>
-                        <label htmlFor="input-tarefa">TÍTULO</label>
-                        <input type="text" id="input-tarefa" value={titulo} onChange={event => setTitulo(event.target.value)} placeholder="Ex.: Finalizar protólipo" />
+            <div className="form-section">
+                <div className="form-header">
+                    <div className="form-icon">+</div>
+                    <div className="form-header-text">
+                        <h1>Nova tarefa</h1>
+                        <p>Organize uma nova ideia em segundos.</p>
+                    </div>
+                </div>
 
-                        <label htmlFor="descricao-tarefa">DESCRIÇÃO</label>
-                        <textarea name="" id="descricao-tarefa" value={descricao} onChange={event => setDescricao(event.target.value)} placeholder="Detalhes opcionais sobre a tarefa..."></textarea>
+                <form onSubmit={handleSalvarTarefa}>
+                    <div className="form-field">
+                        <label htmlFor="input-tarefa">Título</label>
+                        <input
+                            type="text"
+                            id="input-tarefa"
+                            value={titulo}
+                            onChange={(e) => setTitulo(e.target.value)}
+                            placeholder="Ex.: Finalizar protótipo"
+                        />
+                    </div>
 
-                        <div>
-                            <h2>PRIORIDADE</h2>
-                            <button type="button" onClick={() => setPrioridade("Baixa")}>Baixa</button>
-                            <button type="button" onClick={() => setPrioridade("Média")}>Média</button>
-                            <button type="button" onClick={() => setPrioridade("Alta")}>Alta</button>
+                    <div className="form-field">
+                        <label htmlFor="descricao-tarefa">Descrição</label>
+                        <textarea
+                            id="descricao-tarefa"
+                            value={descricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                            placeholder="Detalhes opcionais sobre a tarefa..."
+                        />
+                    </div>
+
+                    <div className="form-row">
+                        <div className="form-group">
+                            <p className="form-group-title">Prioridade</p>
+                            <div className="priority-buttons">
+                                {["Baixa", "Média", "Alta"].map((p) => (
+                                    <button
+                                        key={p}
+                                        type="button"
+                                        className={`priority-btn ${prioridade === p ? "active" : ""}`}
+                                        onClick={() => setPrioridade(p)}
+                                    >
+                                        {p}
+                                    </button>
+                                ))}
+                            </div>
                         </div>
 
-                        <div>
-                            <h2>DATA</h2>
-                            <input type="date" value={data} onChange={event => setData(event.target.value)} />
+                        <div className="form-group">
+                            <p className="form-group-title">Data</p>
+                            <div className="form-field">
+                                <input
+                                    type="date"
+                                    value={data}
+                                    onChange={(e) => setData(e.target.value)}
+                                />
+                            </div>
                         </div>
+                    </div>
 
-                        <div>
-                            <button type="button">Cancelar</button>
-                            <button type="submit">Salvar tarefa</button>
-                        </div>
-                    </form>
-                </section>
-            </main>
-        </>
-    )
+                    <div className="form-actions">
+                        <button
+                            type="button"
+                            className="btn-cancelar"
+                            onClick={() => navigate("/")}
+                        >
+                            Cancelar
+                        </button>
+                        <button type="submit" className="btn-salvar">
+                            Salvar tarefa
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    );
 }
 
 export default NewTask;

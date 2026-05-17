@@ -1,0 +1,268 @@
+.form-page-main {
+    width: 100%;
+    min-height: calc(100vh - 65px);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-back-link {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: fit-content;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.form-back-link:hover {
+    color: var(--foreground);
+}
+
+.form-back-link svg {
+    transition: transform 0.2s ease;
+}
+
+.form-back-link:hover svg {
+    transform: translateX(-3px);
+}
+
+.form-section {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) * 1.5);
+    padding: 2.5rem;
+    backdrop-filter: blur(12px);
+
+    /* Isola do CSS global de section (Home.css usa flex row) */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+}
+
+.form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+.form-header-text h1 {
+    font-size: 1.4rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.form-header-text p {
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
+}
+
+/* Campos */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-field label,
+.form-group-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted-foreground);
+    text-transform: uppercase;
+}
+
+.form-field input[type="text"],
+.form-field textarea {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.25s ease;
+    resize: none;
+    width: 100%;
+}
+
+.form-field textarea {
+    min-height: 5.5rem;
+}
+
+.form-field input[type="text"]::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.form-field input[type="text"]:focus,
+.form-field textarea:focus {
+    border-color: rgba(168, 85, 247, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+/* Seção prioridade + data lado a lado */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.priority-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.priority-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--muted-foreground);
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.55rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.priority-btn:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: var(--foreground);
+}
+
+.priority-btn.active {
+    background: var(--gradient-primary);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+}
+
+.form-field input[type="date"] {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.25s ease;
+    width: 100%;
+    cursor: pointer;
+    color-scheme: dark;
+}
+
+.form-field input[type="date"]:focus {
+    border-color: rgba(168, 85, 247, 0.5);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+}
+
+/* Botões de ação */
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.btn-cancelar {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.7rem 1.4rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn-cancelar:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-salvar {
+    background: var(--gradient-primary);
+    border: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+.btn-salvar:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 32px rgba(168, 85, 247, 0.55);
+    filter: brightness(1.08);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-page-main {
+        padding: 1.5rem 1rem;
+    }
+
+    .form-section {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancelar,
+    .btn-salvar {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
